@@ -81,3 +81,8 @@ func main(){
         ~~~go
             var sites [4]string
         ~~~
+    * Quando os arrays são criados, eles assumem os valores padrão para os tipos de seus elementos. No caso, o tipo do array frutas é string e o valor padrão para cada posição do array será vazio. Portanto, o valor impresso será uma string vazia.
+
+    * len(<array|slice>) : Isso aí! A função que usamos para descobrir o tamanho de uma slice é len().
+
+* Slice : Isso aí! Quando é necessário colocar mais elementos do que sua capacidade atual, o slice dobra a capacidade.
