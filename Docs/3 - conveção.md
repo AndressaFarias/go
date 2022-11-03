@@ -86,3 +86,12 @@ func main(){
     * len(<array|slice>) : Isso aí! A função que usamos para descobrir o tamanho de uma slice é len().
 
 * Slice : Isso aí! Quando é necessário colocar mais elementos do que sua capacidade atual, o slice dobra a capacidade.
+
+* Operador de iteração range
+    * O range nos dá acesso a cada item da coleção, nos retornando a posição do item iterado e o próprio item daquela posição
+
+* Trabalhando com o pacote time é possivel obter tempo para realizar um sleep entre as chamadas
+
+* Arquivos em Go
+    * Isso aí! Podemos utilizar a função os.Open quando queremos abrir um arquivo em Go.
+    
