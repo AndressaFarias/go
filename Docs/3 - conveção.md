@@ -74,7 +74,7 @@ func main(){
     * Em funções com múltiplos valores, temos que informar os tipos de cada retorno entre parênteses. E declarar variáveis separadas por vírgula para receber os valores de saída. No exemplo, a função retornou valores para três tipos diferentes.
 
 
-* Para que um loop seja criado emm go é possivel utilizar o `for { }` isso indica qeu o loop será executado infinitamente
+* Para que um loop seja criado emm go é possivel utilizar o `for { }` isso indica que o loop será executado infinitamente
 
 * Array em go possui tamanho fixo
     * declaração 
