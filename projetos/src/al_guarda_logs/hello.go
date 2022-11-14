@@ -49,9 +49,11 @@ func exibeIntroducao() {
 }
 
 func exibeMenu() {
-	fmt.Println("\n1 - Iniciar Monitoramento")
+	fmt.Println("1 - Iniciar Monitoramento")
 	fmt.Println("2 - Exibir Logs")
-	fmt.Println("0 - Sair do Programa\n")
+	fmt.Println("0 - Sair do Programa")
+	fmt.Print("\n")
+
 }
 
 func leOpcao() int {

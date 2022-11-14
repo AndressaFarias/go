@@ -95,3 +95,18 @@ func main(){
 * Arquivos em Go
     * Isso aí! Podemos utilizar a função os.Open quando queremos abrir um arquivo em Go.
     
+ESCREVER O ARQUIVO
+
+
+Abrir arquivos
+     os.OpenFile - )flags, permissão_
+     A função os.OpenFile é mais poderosa que a função os.Open e nos permite configurar determinadas flags para configurar como o arquivo será manipulado.
+        alguma dAs flags da função os.OpenFile 
+            os.O_CREATE`se o arquivo não existetirele é criado|
+            os.O_RDWR : para poder ler e escrever no arquivi
+            O_APPEND`: para oder escrever na última linha do arquivo
+
+Escrever em arquivos
+Converter tipos para string
+Trabalhar com tempo e formatá-lo
+Exibir o conteúdo de um arquivo
