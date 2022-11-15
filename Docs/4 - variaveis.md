@@ -126,15 +126,75 @@ Quando a variável receber um novo valor, devemos utilizar apenas o sinal de = (
 
 ## Não atribuir um valor ao criar uma variável
 
-Quando criamos uma variável e não atribuímos um valor a ela, o Go se encarrega de atribuir um valor.
+Quando criamos uma variável e não atribuímos um valor a ela, o _Go_ se encarrega de atribuir um valor.
+
 ~~~
 ----------------------------------------------
 | Tipo         | valor atribuído pelo Go     |
 |----------    |-------------------------    |
-| numérico     | 0                           |
-| booleano     | false                       |
+| int          | 0                           |
+| bool         | false                       |
 | string       | " "                         |
+| float        | 0                           |
+| struct       | {}                          |
 ----------------------------------------------
 ~~~
 
 É sempre bom fazermos nós mesmos a inicialização das variáveis para não correr nenhum risco dos padrões da linguagem mudarem e nosso programa parar de funcionar.
+
+Porém, existe uma maneira de denotar um ponteiro nulo que, essencialmente, não aponta para nenhum lugar, em Go temo o `nil`
+
+_forma errada de declarar_:
+
+~~~go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    a := nil
+    fmt.Println(a)
+}
+~~~
+
+
+> Não vai compilar.
+ O compilador imprimirá o seguinte erro: use of untyped nil, que significa uso não tipado do nil.
+
+_forma correta de declarar_
+
+~~~go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var s *string = nil
+    fmt.Println(s)
+}
+~~~
+
+> Neste caso, o programa compila e retorna <nil> como esperado.
+
+
+Não podemos fazer a comparação de variaveis , iniciadas com zero, que sejam de tipos diferentes, exemplo:
+
+~~~go
+package main
+
+import (
+    "fmt"
+)
+
+func main() {
+    var f float64
+    var i int 
+
+    fmt.Println(f==i)
+}
+
+~~~
