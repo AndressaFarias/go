@@ -42,3 +42,11 @@ Por isso, colocaremos o asterisco em contaDaCris também na hora da impressão.
 
 ---
 # V3
+- criar um nova conta
+- atribuir titutlar e valor;
+- imprimir dados 
+- exbir apenas o saldo
+- criar um função `Sacar` para verificar se o valor que tentamos sacar é valido, ela recebe um valor e retorna uma mensagem
+- crie uma variavel `podeSacar` e a faunção para validar se o saldo é maior que o valor a ser sacado
+- deve ser indicado que a operação deve ser realizada pela conta que chamou a função, sem ter que explicitar a conta. Use ponteiro.
+- 

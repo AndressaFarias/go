@@ -28,3 +28,9 @@ type ContaCorrente struct{
     contaBeltrano := ContaCorrente{"Fulano", 456, numConta: 987564, saldo: 741,25}
     ~~~
 
+
+----
+
+Para referenciarmos o ponteiro no momento da criação do tipo, podemos colocar entre parênteses logo após func e antes de Sacar() a inscrição (c *ContaCorrente), o que significa que quando a função for chamada, o código apontará para a conta que chama. Nesse caso, quando chamarmos a função, não precisaremos especificar que nos tratamos da conta de um cliente ou outro.
+
+
