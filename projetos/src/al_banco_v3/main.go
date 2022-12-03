@@ -11,6 +11,8 @@ type ContaCorrente struct{
 	saldo float64
 }
 
+// é preciso indicar que a operação será feita no objeto ContaCorrenta que está executando a fnção
+// para essa indicação é preciso declarar c *ContaCorrente
 func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 	
 	podeSacar := valorDoSaque > 0 && valorDoSaque <= c.saldo 
@@ -18,7 +20,7 @@ func (c *ContaCorrente) Sacar(valorDoSaque float64) string {
 	if podeSacar{
 		c.saldo -= valorDoSaque
 		return "Saque realizado com sucesso"
-	}else{
+	} else {
 		return "Saldo insuficiente"
 	}
 }
@@ -30,13 +32,10 @@ func main() {
 
     fmt.Println(contaDaSilvia)
 
-	contaDaSilvia.Sacar(200)
-
 	// podemos exibir apenas o saldo
 	fmt.Println(contaDaSilvia.saldo)
 
-	fmt.Println(contaDaSilvia.Sacar(200))
+	fmt.Println(contaDaSilvia.Sacar(-100))
 
 	fmt.Println(contaDaSilvia.saldo)
-
 }
