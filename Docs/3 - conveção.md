@@ -110,3 +110,24 @@ Escrever em arquivos
 Converter tipos para string
 Trabalhar com tempo e formatá-lo
 Exibir o conteúdo de um arquivo
+
+
+# Função com quantidade de parâmetros indeterminados
+
+* Uma função em Go pode ter um, muitos ou nenhum parâmetro;
+
+* porém é possivel que um função Go receba um número indeterminado de parâmetros. Funções deste tipo são conhecidas como _variadic functions_, ou função variádica.
+
+* Para criar uma variadic function, devemos preceder o tipo do argumento com reticências, conforme o exemplo abaixo:
+
+~~~go
+func Somando(numeros ...int) int {
+    resultadoDaSoma := 0
+    for _, numero := range numeros {
+        resultadoDaSoma += numero
+    }
+    return resultadoDaSoma
+}
+~~~
+
+* Note o uso das reticências na declaração do parâmetro número: `numeros ...int`. Portanto, podemos criar uma função sem parâmetro, com um, dois, três, ou uma quantidade indeterminada de parâmetros com Go.
