@@ -24,6 +24,10 @@ func main(){
         * EX: `nome := "malu"`
               `idade := 6`
 
+    - a declaração de variáveis do Go começa com a palavra chave `var`, seguida do nome da variável.
+    
+    - Não há necessidade de declarar o tipo, embora possa ser necessário.
+
 * concatenação  é feita pela virgula 
 
 *  para capturar o que o usuário escrever no teclado, é possivel usar duas funções do pacote fmt
@@ -53,6 +57,8 @@ func main(){
 
     }
     ~~~
+
+* as instruções `if` podem ou não ter sua condicional entre parênteses. Normalmente elas são escritas sem os parênteses mesmo
 
 * switch : A palavra reservada switch permite incluir várias alternativas de execução para o programa. Cada alternativa deve utilizar case, e a alternativa executada quando nenhuma condição for atendida é default.
 
@@ -107,7 +113,19 @@ Abrir arquivos
             O_APPEND`: para oder escrever na última linha do arquivo
 
 Escrever em arquivos
-Converter tipos para string
+# Conversão de tipos com Go
+
+## Conhecendo o pacote strconv
+A linguagem Go nos fornece um meio de conversão entre diferentes tipos compatíveis, por exemplo strings para inteiro. Essas conversões são feitas pelo pacote strconv.
+
+## Convertendo um tipo String para um tipo int
+https://www.alura.com.br/artigos/conversao-de-tipos-com-go 
+
+# Go: crie uma aplicação web
+
+
+
+
 Trabalhar com tempo e formatá-lo
 Exibir o conteúdo de um arquivo
 
@@ -131,3 +149,126 @@ func Somando(numeros ...int) int {
 ~~~
 
 * Note o uso das reticências na declaração do parâmetro número: `numeros ...int`. Portanto, podemos criar uma função sem parâmetro, com um, dois, três, ou uma quantidade indeterminada de parâmetros com Go.
+
+
+
+----
+
+# Criando um pacote
+
+Podemos criar pacotes para que os mesmo contenham as structs e métodos de um determinado objeto.
+
+
+Para tonar um campo ou função pública ou privada para outras partes da aplicação, alteramos a primeira letra para minúscula ou maiúscula respectivamente.
+
+
+Quando queremos deixar pública, deixamos a primeira letra maiúscula e privada minúscula.
+
+Visibilidade é o atributo de uma função ou variável a ser visível para diferentes partes do programa
+
+# Passando um valor ou uma cópia
+Métodos são definidos de maneira parecida com funções, mas de uma maneira diferente. 
+Existe um (p *Pessoa) que se refere a um ponteiro para a instância criada da estrutura, conforme o exemplo abaixo:
+
+~~~go
+package main
+
+import (
+    "fmt"
+)
+
+type Pessoa struct {
+    nome, sobrenome string
+}
+
+func (p *Pessoa) ExibirNomeCompleto() string {
+    nomeCompleto := p.nome + " " + p.sobrenome
+    return nomeCompleto
+}
+
+func main() {
+    p1 := Pessoa{"Guilherme", "Lima"}
+    fmt.Println(p1.ExibirNomeCompleto())
+}
+~~~
+
+
+Ao executar este código, temos a saída esperada: `Guilherme Lima`
+
+Nesse caso, passamos para o método o valor encontrado neste ponteiro através do (p *Pessoa).
+
+## Passando uma cópia
+Também é possível passar um valor removendo a assinatura do ponteiro (p *Pessoa) para (p Pessoa).
+
+Nesse caso, uma cópia do valor de Pessoa é passada para a função, sem alterar o valor do ponteiro. Portanto, precisamos ficar atentos, já que qualquer alteração que você faça em p se passar por valor não será refletida na fonte p.
+
+Observe este exemplo:
+
+~~~go
+package main
+
+import (
+    "fmt"
+)
+
+type Pessoa struct {
+    nome, sobrenome string
+}
+
+func (p Pessoa) ExibirNomeCompleto() string {
+    p.sobrenome = "Silva"
+    nomeCompleto := p.nome + " " + p.sobrenome
+    return nomeCompleto
+}
+
+func main() {
+    p1 := Pessoa{"Guilherme", "Lima"}
+
+    fmt.Println(p1.ExibirNomeCompleto())
+    fmt.Println(p1.nome, p1.sobrenome)
+}
+~~~
+
+
+Nossa saída será: 
+~~~
+  Guilherme Silva
+  Guilherme Lima
+~~~
+
+
+Observe que alteramos o sobrenome de `p` no método `ExibirNomeCompleto`, mas não foi alterado o valor armazenado no ponteiro. Sendo assim, quando não precisamos alterar o conteúdo de um ponteiro, podemos passar apenas uma cópia
+
+#  Tipos polimórficos em Go
+
+## Interface
+Uma interface é a definição de um conjunto de métodos comuns a um ou mais tipos. É o que permite a criação de tipos polimórficos em Go.
+
+Podemos reaproveitar métodos ou funções entre tipos utilizando interface.
+
+# Golang: trabalhando com datas
+
+No Golang temos o pacote `Time`, que contém algumas funções para trabalhar com data e hora.
+
+Quando queremos formatar em Golang, utilizamos a palavra format, seguido de algo bem diferente de outras linguagens de programação. Isso porque os formatos de data e hora parecem com a data e hora reais e não Y-m-d H:i:s 
+
+O que queremos editar	código
+dia (com zero)	02
+dia (sem o zero)	2
+dia da semana (inteiro)	Monday
+dia da semana abreviado	Mon
+mês com número (com zero)	01
+mês com número (sem zero)	1
+mês (nome inteiro)	January
+mês (nome abreviado)	Jan
+ano (inteiro)	2006
+ano (abreviado)	06
+hora (com zero)	03
+hora (sem zero)	3
+hora (formato 24 horas)	15
+minutos (com zero)	04
+minutos (sem zero)	4
+segundos (com zero)	05
+segundos (sem zero)	5
+
+
